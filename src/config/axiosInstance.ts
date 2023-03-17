@@ -8,19 +8,14 @@ export const axiosInstance = axios.create({
     baseURL: BASE_ULR,
 })
 
-// axios.interceptors.request.use(
-//     function (config) {
-//         const newConfig = {
-//             ...config,
-//             headers: {
-//                 ...config.headers,
-//                 Authorization: store.getState().auth.token,
-//             },
-//         }
-//         return newConfig
-//     },
+axios.interceptors.request.use(
+    function (config) {
+        config.headers.set('Authorization', store.getState().auth.token)
 
-//     function (error) {
-//         return error
-//     }
-// )
+        return config
+    },
+
+    function (error) {
+        return error
+    }
+)

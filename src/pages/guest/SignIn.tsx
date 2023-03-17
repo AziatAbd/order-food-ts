@@ -36,7 +36,7 @@ const SignIn = () => {
         dispatch(signIn(values))
             .unwrap()
             .then(() => navigate('/'))
-            .catch((e) => setLoginError(e.response.data.message))
+            .catch((e: string) => setLoginError(e))
     }
 
     return (

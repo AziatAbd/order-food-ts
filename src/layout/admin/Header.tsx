@@ -3,6 +3,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { styled } from '@mui/system'
 import { useDispatch } from 'react-redux'
+import { signOut } from '../../store/auth/auth.thunk'
+import { AppDispatch } from '../../store/store'
 
 const menus = [
     {
@@ -16,10 +18,10 @@ const menus = [
 ]
 
 const AdminHeader = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
 
     const signOutHandler = () => {
-        // dispatch(signOut())
+        dispatch(signOut())
     }
 
     return (

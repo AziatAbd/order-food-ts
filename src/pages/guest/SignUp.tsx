@@ -44,8 +44,6 @@ const SignUp = () => {
     })
 
     const submitHandler = (values: FormSchema) => {
-        console.log(values)
-
         dispatch(signUp(values))
             .unwrap()
             .then(() => navigate('/'))
