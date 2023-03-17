@@ -67,9 +67,7 @@ const SignUp = () => {
                         )}
                         <TextField
                             error={!!formState.errors.email}
-                            {...register('email', {
-                                required: 'Please norm email jaz',
-                            })}
+                            {...register('email')}
                             label="Email"
                         />
                         {formState.errors.name && (
@@ -77,9 +75,7 @@ const SignUp = () => {
                         )}
                         <TextField
                             error={!!formState.errors.password}
-                            {...register('password', {
-                                required: 'Please parol > 6',
-                            })}
+                            {...register('password')}
                             label="Password"
                         />
                         {formState.errors.email && (
@@ -87,9 +83,7 @@ const SignUp = () => {
                         )}
                         <TextField
                             error={!!formState.errors.confirm}
-                            {...register('confirm', {
-                                required: 'Please confirm === password',
-                            })}
+                            {...register('confirm')}
                             label="Confirm Password"
                         />
                         {formState.errors.email && (
