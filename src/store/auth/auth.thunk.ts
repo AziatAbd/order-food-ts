@@ -12,6 +12,7 @@ export const signIn = createAsyncThunk<SigninUser, SigninUser>(
     async (values, { rejectWithValue }) => {
         try {
             const { data } = await signInRequest(values)
+            localStorage.setItem(STORAGE_KEYS.AUTH, JSON.stringify(data.data))
             return data.data
         } catch (error) {
             return rejectWithValue(error)
@@ -24,6 +25,7 @@ export const signUp = createAsyncThunk<SignUpUser, SignUpUser>(
     async (values, { rejectWithValue }) => {
         try {
             const { data } = await signUpRequest(values)
+            localStorage.setItem(STORAGE_KEYS.AUTH, JSON.stringify(data.data))
             return data.data
         } catch (error) {
             return rejectWithValue(error)
