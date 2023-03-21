@@ -113,7 +113,7 @@ const AppRoutes = () => {
                         <ProtectedRoute
                             isAllowed={isAllowed([UserRoles.ADMIN])}
                             fallBackPath="/"
-                            component={() => <p>Orders</p>}
+                            component={() => <p>Admin Orders</p>}
                         />
                     }
                 />

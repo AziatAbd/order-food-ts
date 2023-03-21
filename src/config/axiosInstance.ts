@@ -8,7 +8,7 @@ export const axiosInstance = axios.create({
     baseURL: BASE_ULR,
 })
 
-axios.interceptors.request.use(
+axiosInstance.interceptors.request.use(
     function (config) {
         config.headers.set('Authorization', store.getState().auth.token)
 
