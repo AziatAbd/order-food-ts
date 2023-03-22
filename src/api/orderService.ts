@@ -1,12 +1,16 @@
-import { Order } from '../common/types'
+import { MealType } from '../common/types'
 import { axiosInstance } from '../config/axiosInstance'
 
 type AllOrdersResponse = {
-    data: Order[]
+    data: MealType[]
 }
 
 const getAllOrder = () => {
     return axiosInstance.get<AllOrdersResponse>('orders/all')
 }
 
-export default { getAllOrder }
+const getOrder = () => {
+    return axiosInstance.get<AllOrdersResponse>('orders')
+}
+
+export default { getAllOrder, getOrder }

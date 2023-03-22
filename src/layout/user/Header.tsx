@@ -83,6 +83,14 @@ const Header = ({ onShowBasket }: Props) => {
                 count={0}
             />
 
+            <Button
+                onClick={goToOrderPageHandler}
+                color="inherit"
+                variant="outlined"
+            >
+                My Orders
+            </Button>
+
             {isAuthorized ? (
                 <Button onClick={signOutHandler}>Sign Out</Button>
             ) : (

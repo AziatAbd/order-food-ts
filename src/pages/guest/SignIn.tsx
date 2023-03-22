@@ -16,7 +16,7 @@ const SignIn = () => {
 
     const schema = z.object({
         email: z.string().email(),
-        password: z.string().min(6),
+        password: z.string().min(4),
     })
 
     type FormSchema = (typeof schema)['_output']

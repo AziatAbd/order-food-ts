@@ -26,7 +26,8 @@ const StyledBox = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 500,
+    height: 300,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -46,6 +47,7 @@ const MealModal = ({ open, onClose, onSubmit }: Props) => {
             title: '',
             description: '',
         },
+
         mode: 'onBlur',
         resolver: zodResolver(schema),
     })
@@ -71,7 +73,7 @@ const MealModal = ({ open, onClose, onSubmit }: Props) => {
         <Modal open={open} onClose={onClose}>
             <Box sx={StyledBox}>
                 <Grid>
-                    <form onSubmit={handleSubmit(submitHandler)}>
+                    <StyledForm onSubmit={handleSubmit(submitHandler)}>
                         <TextField
                             {...register('title')}
                             label="Title"
@@ -90,7 +92,7 @@ const MealModal = ({ open, onClose, onSubmit }: Props) => {
                         />
                         <Button
                             variant="outlined"
-                            color="info"
+                            color="error"
                             onClick={onClose}
                         >
                             Cancel
@@ -102,7 +104,7 @@ const MealModal = ({ open, onClose, onSubmit }: Props) => {
                         >
                             Save
                         </Button>
-                    </form>
+                    </StyledForm>
                 </Grid>
             </Box>
         </Modal>
@@ -110,3 +112,8 @@ const MealModal = ({ open, onClose, onSubmit }: Props) => {
 }
 
 export default MealModal
+
+const StyledForm = styled('form')(() => ({
+    display: 'grid',
+    gap: 15,
+}))

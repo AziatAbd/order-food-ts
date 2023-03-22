@@ -48,13 +48,13 @@ export const authSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(signUp.fulfilled, (state, { payload }) => {
             state.isAuthorized = true
-            // state.token = payload.token
+            state.token = payload.token
 
-            // state.user = {
-            //     name: payload.user.name,
-            //     email: payload.user.email,
-            //     role: payload.user.role,
-            // }
+            state.user = {
+                name: payload.user.name,
+                email: payload.user.email,
+                role: payload.user.role,
+            }
         })
         builder.addCase(signIn.fulfilled, (state, { payload }) => {
             state.isAuthorized = true

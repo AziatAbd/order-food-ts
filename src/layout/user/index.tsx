@@ -1,6 +1,7 @@
-import { styled } from '@mui/material'
+import { Grid, styled } from '@mui/material'
 import React, { useCallback, useState } from 'react'
 import { Outlet } from 'react-router-dom'
+import Basket from '../../components/user/basket/Basket'
 import Header from './Header'
 
 const UserLayout = () => {
@@ -14,15 +15,12 @@ const UserLayout = () => {
         <>
             <Header onShowBasket={showBasketHandler} />
 
-            <Content>
+            <Basket open={isBasketVisible} onClose={showBasketHandler} />
+            <Grid>
                 <Outlet />
-            </Content>
+            </Grid>
         </>
     )
 }
 
 export default UserLayout
-
-const Content = styled('div')(() => ({
-    marginTop: ' 101px',
-}))

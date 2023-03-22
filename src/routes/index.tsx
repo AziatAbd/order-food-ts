@@ -9,6 +9,9 @@ import AdminLayout from '../layout/admin'
 import SignIn from '../pages/guest/SignIn'
 import SignUp from '../pages/guest/SignUp'
 import Meals from '../pages/admin/Meals.page'
+import Order from '../pages/admin/Order.page'
+import UserMeals from '../pages/user/Meals.page'
+import UserOrders from '../pages/user/Orders.page'
 
 const AppRoutes = () => {
     const role = useSelector((state: RootState) => state.auth.user.role)
@@ -38,7 +41,7 @@ const AppRoutes = () => {
                                 UserRoles.USER,
                             ])}
                             fallBackPath="/admin/meals"
-                            component={() => <p>MealsPage</p>}
+                            component={UserMeals}
                         />
                     }
                 />
@@ -51,7 +54,7 @@ const AppRoutes = () => {
                                 UserRoles.USER,
                             ])}
                             fallBackPath="/admin/meals"
-                            component={() => <p>Order</p>}
+                            component={UserOrders}
                         />
                     }
                 />
@@ -113,7 +116,7 @@ const AppRoutes = () => {
                         <ProtectedRoute
                             isAllowed={isAllowed([UserRoles.ADMIN])}
                             fallBackPath="/"
-                            component={() => <p>Admin Orders</p>}
+                            component={Order}
                         />
                     }
                 />

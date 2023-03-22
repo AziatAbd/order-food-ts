@@ -65,8 +65,10 @@ const Meals = () => {
                     <IconButton>
                         <EditIcon onClick={() => editHandler(meal._id)} />
                     </IconButton>
-                    <IconButton onClick={() => deleteMealHandler(meal._id)}>
-                        <DeleteIcon />
+                    <IconButton>
+                        <DeleteIcon
+                            onClick={() => deleteMealHandler(meal._id)}
+                        />
                     </IconButton>
                 </Grid>
             ),

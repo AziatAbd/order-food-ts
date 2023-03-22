@@ -25,12 +25,20 @@ export interface Meal {
     readonly _id: string
 }
 
-export interface Order {
-    amount: number
-    food: null
-    price: number
-    description: string
+type ItemType = {
+    _id: string
     title: string
+    amount: number
+    price: number
+}
+export type MealType = {
+    createdAt: string
+    items: ItemType[]
+    totalPrice: number
+    user: {
+        _id: string
+        name: string
+    }
     readonly _id: string
 }
 
