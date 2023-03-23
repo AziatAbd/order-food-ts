@@ -34,9 +34,7 @@ const Card = styled('div')(() => ({
     margin: ' 160px auto',
 }))
 
-const StyledUl = styled('ul')(({ theme }) => ({
+const StyledUl = styled('ul')(() => ({
     listStyle: ' none',
     padding: '20px 40px',
-    background: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
 }))

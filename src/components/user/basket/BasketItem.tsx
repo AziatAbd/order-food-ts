@@ -1,111 +1,96 @@
 import React from 'react'
+import AddIcon from '@mui/icons-material/Add'
+import RemoveIcon from '@mui/icons-material/Remove'
+import { Button } from '@mui/material'
+import { styled } from '@mui/material/styles'
 
-const BasketItem = () => {
-    return <div>BasketItem</div>
+type Props = {
+    title: string
+    price: number
+    amount: number
+    decrementAmount: () => void
+    incrementAmount: () => void
+}
+
+const BasketItem = ({
+    title,
+    price,
+    amount,
+    decrementAmount,
+    incrementAmount,
+}: Props) => {
+    return (
+        <Container>
+            <Title>{title}</Title>
+            <Content>
+                <PriceAndAmountContainer>
+                    <Price>${price}</Price>
+                    <Amount>x{amount}</Amount>
+                </PriceAndAmountContainer>
+                <CounterContainer>
+                    <Button variant="outlined" onClick={decrementAmount}>
+                        <RemoveIcon />
+                    </Button>
+                    <Button variant="outlined" onClick={incrementAmount}>
+                        <AddIcon />
+                    </Button>
+                </CounterContainer>
+            </Content>
+        </Container>
+    )
 }
 
 export default BasketItem
 
-// import React from 'react'
-// import AddIcon from '@mui/icons-material/Add'
-// import RemoveIcon from '@mui/icons-material/Remove'
-// import { Button } from '@mui/material'
+const Container = styled('div')(() => ({
+    padding: '24px 0',
+    width: '100%',
+    borderBottom: '1px solid #d6d6d6',
+    '&:last-child': {
+        border: 'none',
+    },
+}))
 
-// type Props = {
-//     title: string
-//     price: number
-//     amount: number
-//     decrementAmount: () => void
-//     incrementAmount: () => void
-// }
+const Title = styled('p')(() => ({
+    margin: '0',
+    fontWeight: '600',
+    fontSize: '20px',
+    lineHeight: ' 30px',
+    textAlign: 'center',
+}))
 
-// const BasketItem = ({
-//     title,
-//     price,
-//     amount,
-//     decrementAmount,
-//     incrementAmount,
-// }: Props) => {
-//     return (
-//         <Container>
-//             <Title>{title}</Title>
-//             <Content>
-//                 <PriceAndAmountContainer>
-//                     <Price>${price}</Price>
-//                     <Amount>x{amount}</Amount>
-//                 </PriceAndAmountContainer>
-//                 <CounterContainer>
-//                     <Button
-//                         borderStyle="squared"
-//                         variant="outlined"
-//                         onClick={decrementAmount}
-//                     >
-//                         <RemoveIcon />
-//                     </Button>
-//                     <Button
-//                         borderStyle="squared"
-//                         variant="outlined"
-//                         onClick={incrementAmount}
-//                     >
-//                         <AddIcon />
-//                     </Button>
-//                 </CounterContainer>
-//             </Content>
-//         </Container>
-//     )
-// }
+const Price = styled('p')(() => ({
+    margin: '0',
+    fontWeight: '600',
+    fontSize: '18px',
+    lineHeight: '27px',
+    color: '#b4461a',
+}))
 
-// export default BasketItem
+const Amount = styled('span')(() => ({
+    border: '1px solid #d6d6d6',
+    borderRadius: ' 6px',
+    fontWeight: '500',
+    fontSize: '16px',
+    linHeight: '24px',
+    padding: '6px 14px',
+    display: 'block',
+}))
 
-// const Container = styled.div`
-//     padding: 24px 0;
-//     width: 100%;
-//     border-bottom: 1px solid #d6d6d6;
-//     :last-child {
-//         border: none;
-//     }
-// `
+const PriceAndAmountContainer = styled('div')(() => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '153px',
+}))
 
-// const Title = styled.p`
-//     margin: 0;
-//     font-weight: 600;
-//     font-size: 20px;
-//     line-height: 30px;
-//     text-align: center;
-// `
+const CounterContainer = styled('div')(() => ({
+    display: 'flex',
+    gap: '14px',
+}))
 
-// const Price = styled.p`
-//     margin: 0;
-//     font-weight: 600;
-//     font-size: 18px;
-//     line-height: 27px;
-//     color: #0ff;
-// `
-
-// const Amount = styled.span`
-//     border: 1px solid #d6d6d6;
-//     border-radius: 6px;
-//     font-weight: 500;
-//     font-size: 16px;
-//     line-height: 24px;
-//     padding: 6px 14px;
-//     display: block;
-// `
-
-// const PriceAndAmountContainer = styled.div`
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     width: 153px;
-// `
-
-// const CounterContainer = styled.div`
-//     display: flex;
-//     gap: 14px;
-// `
-
-// const Content = styled.div`
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-// `
+const Content = styled('div')(() => ({
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+}))

@@ -13,4 +13,8 @@ const getOrder = () => {
     return axiosInstance.get<AllOrdersResponse>('orders')
 }
 
-export default { getAllOrder, getOrder }
+const postOrder = (totalPrice: { totalPrice: number }) => {
+    return axiosInstance.post('orders', totalPrice)
+}
+
+export default { getAllOrder, getOrder, postOrder }

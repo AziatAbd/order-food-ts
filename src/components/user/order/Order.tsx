@@ -40,9 +40,10 @@ export default Order
 
 const Container = styled('div')(({ theme }) => ({
     display: 'grid',
-    gap: '10px',
-    background: theme.palette.primary.dark,
+    gap: '50px',
     color: '#fff',
+    width: '50%',
+    margin: '190px auto',
 }))
 
 const MealContainer = styled('div')(() => ({
@@ -50,4 +51,5 @@ const MealContainer = styled('div')(() => ({
     alignItems: 'center',
     justifyContent: 'space-around',
     borderBottom: '1px solid #222',
+    padding: '20px',
 }))

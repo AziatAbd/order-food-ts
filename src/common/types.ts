@@ -31,6 +31,7 @@ type ItemType = {
     amount: number
     price: number
 }
+
 export type MealType = {
     createdAt: string
     items: ItemType[]
@@ -49,6 +50,13 @@ export type Column<T> = {
     align?: 'left' | 'right' | 'center'
     index?: boolean
     render?: (meal: T) => JSX.Element
+}
+
+export type BasketData = {
+    id: string
+    price: number
+    title: string
+    amount: number
 }
 
 export type UpdateData = {

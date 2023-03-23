@@ -42,7 +42,7 @@ const Price = styled('span')(() => ({
     fontWeight: '700',
     fontSize: '1.25rem',
     lineHeight: '1.875rem',
-    color: '#0ff',
+    color: '#ca4a17',
 }))
 
 const StyledLi = styled('li')(() => ({

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import BasketButton from '../../components/user/BasketButton'
 import { signOut } from '../../store/auth/auth.thunk'
+import { getBasket } from '../../store/basket/basket.thunk'
 import { AppDispatch, RootState } from '../../store/store'
 
 type Props = {
@@ -16,40 +17,33 @@ const Header = ({ onShowBasket }: Props) => {
         (state: RootState) => state.auth.isAuthorized
     )
 
-    // const items = useSelector((state) => state.basket.items)
+    const items = useSelector((state: RootState) => state.basket.items)
     const [animationClass, setAnimationClass] = useState<string>('')
-    // const themeMode = useSelector((state) => state.ui.themeMode)
 
     const dispatch = useDispatch<AppDispatch>()
 
-    // useEffect(() => {
-    //     dispatch(getBasket())
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(getBasket())
+    }, [dispatch])
 
-    // const calculateTotalAmount = () => {
-    //     const sum = items.reduce((s, item) => {
-    //         return s + item.amount
-    //     }, 0)
-    //     return sum
-    // }
+    const calculateTotalAmount = () => {
+        const sum = items.reduce((s, item) => {
+            return s + item.amount
+        }, 0)
+        return sum
+    }
 
-    // useEffect(() => {
-    //     setAnimationClass('bump')
+    useEffect(() => {
+        setAnimationClass('bump')
 
-    //     const id = setTimeout(() => {
-    //         setAnimationClass('')
-    //     }, 300)
+        const id = setTimeout(() => {
+            setAnimationClass('')
+        }, 300)
 
-    //     return () => {
-    //         clearTimeout(id)
-    //     }
-    // }, [items])
-
-    // const themeChangeHandler = () => {
-    //     const theme = themeMode === 'light' ? 'dark' : 'light'
-
-    //     dispatch(uiActions.changeTheme(theme))
-    // }
+        return () => {
+            clearTimeout(id)
+        }
+    }, [items])
 
     const signOutHandler = () => {
         dispatch(signOut())
@@ -80,13 +74,13 @@ const Header = ({ onShowBasket }: Props) => {
             <BasketButton
                 className={animationClass}
                 onClick={showBasketHandler}
-                count={0}
+                count={calculateTotalAmount()}
             />
 
             <Button
                 onClick={goToOrderPageHandler}
-                color="inherit"
-                variant="outlined"
+                color="error"
+                variant="contained"
             >
                 My Orders
             </Button>
@@ -103,13 +97,13 @@ const Header = ({ onShowBasket }: Props) => {
 export default Header
 
 const Container = styled('header')(({ theme }) => ({
-    // position: 'fixed',
-    // top: 0,
+    position: 'fixed',
+    top: 0,
     display: 'flex',
     justifyContent: 'space-between',
-    // width: '100%',
+    width: '100%',
     height: '6.3125rem',
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: '#8A2B06',
     padding: '0 7.5rem',
     alignItems: 'center',
     zIndex: 1,

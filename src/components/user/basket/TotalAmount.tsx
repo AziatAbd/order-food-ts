@@ -1,68 +1,66 @@
+import Button from '@mui/material/Button'
+import { styled } from '@mui/material/styles'
 import React from 'react'
 
-const TotalAmount = () => {
-    return <div>TotalAmount</div>
+type Props = {
+    price: number
+    onClose: () => void
+    onOrder: () => void
+}
+
+const TotalAmount = ({ price, onClose, onOrder }: Props) => {
+    const orderButton =
+        price > 0 ? <Button onClick={onOrder}>Order</Button> : null
+
+    const fixedPrice = price.toFixed(2)
+
+    return (
+        <Container>
+            <InfoContainer>
+                <Label>Total amount</Label>
+                <Price>${fixedPrice}</Price>
+            </InfoContainer>
+
+            <ActionButtonsContainer>
+                <Button variant="outlined" onClick={onClose}>
+                    close
+                </Button>
+                {orderButton}
+            </ActionButtonsContainer>
+        </Container>
+    )
 }
 
 export default TotalAmount
 
-// import React, { memo } from 'react'
-// import styled from 'styled-components'
-// import Button from '../UI/Button'
+const Label = styled('p')(() => ({
+    fontWeight: '700',
+    fontSize: '20px',
+    lineHeight: '30px',
+    textAlign: 'center',
+    margin: 0,
+}))
 
-// const TotalAmount = ({ price, onCLose, onOrder }) => {
-//     const orderButton =
-//         price > 0 ? <Button onClick={onOrder}>Order</Button> : null
+const Price = styled('p')(() => ({
+    fontWeight: '600',
+    fontSize: '22px',
+    lineHeight: '33px',
+    color: '#b4461a',
+    margin: 0,
+}))
 
-//     const fixedPrice = price.toFixed(2)
+const InfoContainer = styled('div')(() => ({
+    display: 'flex',
+    justifyContent: 'space-between',
+}))
 
-//     return (
-//         <Container>
-//             <InfoContainer>
-//                 <Label>Total amount</Label>
-//                 <Price>${fixedPrice}</Price>
-//             </InfoContainer>
+const ActionButtonsContainer = styled('div')(() => ({
+    marginTop: '24px',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    gap: '1rem',
+}))
 
-//             <ActionButtonsContainer>
-//                 <Button variant="outlines" onClick={onCLose}>
-//                     close
-//                 </Button>
-//                 {orderButton}
-//             </ActionButtonsContainer>
-//         </Container>
-//     )
-// }
-
-// export default memo(TotalAmount)
-
-// const Label = styled.p`
-//     font-weight: 700;
-//     font-size: 20px;
-//     line-height: 30px;
-//     text-align: center;
-//     margin: 0;
-// `
-
-// const Price = styled.p`
-//     font-weight: 600;
-//     font-size: 22px;
-//     line-height: 33px;
-//     color: #0ff;
-//     margin: 0;
-// `
-
-// const InfoContainer = styled.div`
-//     display: flex;
-//     justify-content: space-between;
-// `
-
-// const ActionButtonsContainer = styled.div`
-//     margin-top: 24px;
-//     display: flex;
-//     justify-content: flex-end;
-//     gap: 1rem;
-// `
-
-// const Container = styled.div`
-//     margin: 30px 0 0 0;
-// `
+const Container = styled('div')(() => ({
+    margin: '30px 0 0 0',
+}))

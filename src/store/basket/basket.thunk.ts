@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { AxiosError, isAxiosError } from 'axios'
 import basketService from '../../api/basketService'
+import { BasketData } from '../../common/types'
 
 export const getBasket = createAsyncThunk(
     'basket/getBasket',
@@ -23,7 +24,7 @@ export const getBasket = createAsyncThunk(
 
 export const addToBasket = createAsyncThunk(
     'basket/addToBasket',
-    async (newItem, { rejectWithValue, dispatch }) => {
+    async (newItem: BasketData, { rejectWithValue, dispatch }) => {
         try {
             await basketService.addToBasket(newItem)
             dispatch(getBasket())

@@ -2,8 +2,8 @@ import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { styled, TextField, Button } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
-// import { addToBasket } from '../../../store/basket/basketThunk'
 import { AppDispatch, RootState } from '../../../store/store'
+import { addToBasket } from '../../../store/basket/basket.thunk'
 
 type Props = {
     id: string
@@ -36,7 +36,7 @@ const MealItemForm = ({ id, title, price }: Props) => {
             amount,
         }
 
-        // dispatch(addToBasket(basketItem))
+        dispatch(addToBasket(basketItem))
     }
 
     return (
@@ -51,7 +51,7 @@ const MealItemForm = ({ id, title, price }: Props) => {
                     onChange={amountChangeHandler}
                 />
             </Container>
-            <Button variant="contained" color="secondary" type="submit">
+            <Button variant="contained" color="info" type="submit">
                 <AddIcon />
                 Add
             </Button>

@@ -16,8 +16,8 @@ const BasketButton = ({ count, ...props }: Props) => (
 
 export default BasketButton
 
-const StyledMuiButton = styled(Button)(({ theme }) => ({
-    background: theme.palette.primary.main,
+const StyledMuiButton = styled(Button)(() => ({
+    background: '#5A1F08',
     color: '#fff',
     borderRadius: '1.25rem',
     padding: ' 0.75rem 2rem',
@@ -30,11 +30,11 @@ const StyledMuiButton = styled(Button)(({ theme }) => ({
     alignItems: 'center',
 
     '&:hover': {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: '#4f1b07',
     },
 
     '&:hover > #counter': {
-        background: theme.palette.primary.dark,
+        background: '#431b0c',
     },
 
     '&.bump': {
@@ -64,8 +64,8 @@ const StyledTitle = styled('span')(() => ({
     margin: '0 1.5rem 0 0.75rem',
 }))
 
-const StyledCounter = styled('span')(({ theme }) => ({
-    background: theme.palette.primary.dark,
+const StyledCounter = styled('span')(() => ({
+    background: '#722608',
     borderRadius: '1.875rem',
     color: '#fff',
     fontWeight: 700,
