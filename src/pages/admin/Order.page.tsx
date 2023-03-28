@@ -1,7 +1,7 @@
-import { Grid, IconButton } from '@mui/material'
-import React, { useEffect } from 'react'
+import { Grid } from '@mui/material'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Column, Meal, MealType } from '../../common/types'
+import { Column, MealType } from '../../common/types'
 import AppTable from '../../components/UI/Table'
 import { getAllOrder } from '../../store/orders/orders.thunk'
 import { AppDispatch, RootState } from '../../store/store'
@@ -34,6 +34,17 @@ const Order = () => {
                 <Grid>
                     {meal.items.map((item) => (
                         <p key={item._id}>{item.title}</p>
+                    ))}
+                </Grid>
+            ),
+        },
+        {
+            header: 'Amount',
+            key: 'amount',
+            render: (meal: MealType) => (
+                <Grid>
+                    {meal.items.map((item) => (
+                        <p key={item._id}>{item.amount}</p>
                     ))}
                 </Grid>
             ),

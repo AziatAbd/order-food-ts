@@ -51,7 +51,7 @@ const MealItemForm = ({ id, title, price }: Props) => {
                     onChange={amountChangeHandler}
                 />
             </Container>
-            <Button variant="contained" color="info" type="submit">
+            <Button variant="contained" color="error" type="submit">
                 <AddIcon />
                 Add
             </Button>

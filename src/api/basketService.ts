@@ -12,13 +12,13 @@ const addToBasket = (newItem: BasketData) => {
 }
 
 const updateBasketItem = (id: string, basketAmount: number) => {
-    return axiosInstance.put(`basket/${id}/update`, {
+    return axiosInstance.put(`basketItem/${id}/update`, {
         amount: basketAmount,
     })
 }
 
 const deleteBasketItem = (id: string) => {
-    return axiosInstance.delete(`basket/${id}/delete`)
+    return axiosInstance.delete(`basketItem/${id}/delete`)
 }
 
 export default { getBasket, addToBasket, updateBasketItem, deleteBasketItem }

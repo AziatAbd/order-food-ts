@@ -28,10 +28,18 @@ const BasketItem = ({
                     <Amount>x{amount}</Amount>
                 </PriceAndAmountContainer>
                 <CounterContainer>
-                    <Button variant="outlined" onClick={decrementAmount}>
+                    <Button
+                        variant="outlined"
+                        color="error"
+                        onClick={decrementAmount}
+                    >
                         <RemoveIcon />
                     </Button>
-                    <Button variant="outlined" onClick={incrementAmount}>
+                    <Button
+                        variant="outlined"
+                        color="error"
+                        onClick={incrementAmount}
+                    >
                         <AddIcon />
                     </Button>
                 </CounterContainer>

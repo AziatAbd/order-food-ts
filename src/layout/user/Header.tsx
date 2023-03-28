@@ -86,9 +86,21 @@ const Header = ({ onShowBasket }: Props) => {
             </Button>
 
             {isAuthorized ? (
-                <Button onClick={signOutHandler}>Sign Out</Button>
+                <Button
+                    variant="contained"
+                    color="error"
+                    onClick={signOutHandler}
+                >
+                    Sign Out
+                </Button>
             ) : (
-                <Button onClick={signInHandler}>Sign In</Button>
+                <Button
+                    variant="contained"
+                    color="error"
+                    onClick={signInHandler}
+                >
+                    Sign In
+                </Button>
             )}
         </Container>
     )
@@ -96,16 +108,16 @@ const Header = ({ onShowBasket }: Props) => {
 
 export default Header
 
-const Container = styled('header')(({ theme }) => ({
-    position: 'fixed',
+const Container = styled('header')(() => ({
+    position: 'static',
     top: 0,
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     width: '100%',
     height: '6.3125rem',
     backgroundColor: '#8A2B06',
-    padding: '0 7.5rem',
     alignItems: 'center',
+    marginBottom: '20px',
     zIndex: 1,
 }))
 

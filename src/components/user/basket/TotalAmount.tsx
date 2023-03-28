@@ -10,7 +10,11 @@ type Props = {
 
 const TotalAmount = ({ price, onClose, onOrder }: Props) => {
     const orderButton =
-        price > 0 ? <Button onClick={onOrder}>Order</Button> : null
+        price > 0 ? (
+            <Button variant="outlined" color="error" onClick={onOrder}>
+                Order
+            </Button>
+        ) : null
 
     const fixedPrice = price.toFixed(2)
 
@@ -22,7 +26,7 @@ const TotalAmount = ({ price, onClose, onOrder }: Props) => {
             </InfoContainer>
 
             <ActionButtonsContainer>
-                <Button variant="outlined" onClick={onClose}>
+                <Button variant="outlined" color="error" onClick={onClose}>
                     close
                 </Button>
                 {orderButton}

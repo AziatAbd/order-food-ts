@@ -49,10 +49,7 @@ const AppRoutes = () => {
                     path="my-order"
                     element={
                         <ProtectedRoute
-                            isAllowed={isAllowed([
-                                UserRoles.GUEST,
-                                UserRoles.USER,
-                            ])}
+                            isAllowed={isAllowed([UserRoles.USER])}
                             fallBackPath="/admin/meals"
                             component={UserOrders}
                         />

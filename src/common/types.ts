@@ -25,7 +25,7 @@ export interface Meal {
     readonly _id: string
 }
 
-type ItemType = {
+export type ItemType = {
     _id: string
     title: string
     amount: number

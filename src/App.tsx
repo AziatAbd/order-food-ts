@@ -4,11 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import AppRoutes from './routes'
 
 function AppContent() {
-    return (
-        <div>
-            <AppRoutes />
-        </div>
-    )
+    return <AppRoutes />
 }
 
 const App = () => {

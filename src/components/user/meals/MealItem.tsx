@@ -15,7 +15,6 @@ const MealItem = ({ item }: Props) => {
                 <Description>{item.description}</Description>
                 <Price>${item.price}</Price>
             </StyledInfoCard>
-            {/* eslint-disable-next-line no-underscore-dangle */}
             <MealItemForm id={item._id} title={item.title} price={item.price} />
         </StyledLi>
     )

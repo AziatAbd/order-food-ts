@@ -26,7 +26,11 @@ const AdminHeader = () => {
 
     return (
         <AppBar position="static">
-            <Toolbar>
+            <Toolbar
+                sx={{
+                    background: '#8A2B06',
+                }}
+            >
                 <Appbar>
                     <StyledGrid>
                         {menus.map((item) => (
